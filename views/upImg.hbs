@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row col-8 col-lg-5 m-auto mt-5 p-3 border border-primary">
+        <h2 class="rounded text-center text-white bg-info p-2">Tải ảnh đại diện</h2>
+        <form action="changeImg/img" enctype="multipart/form-data" method="post">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ảnh đại diện</label>
+                <input class="form-control" name="imgRes" type="file" id="formFile">
+                <input class="d-none" name="dataNew" value={{dataForm}}>
+            </div>
+            <div class="row">
+                <div class="col text-end">
+                    <input type="submit" class="btn btn-primary" value="Xác nhận">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
