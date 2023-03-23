@@ -11,10 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </head>
 
-<body>
+<body class="bg-warning bg-gradient">
     <div class="container">
-        <div class="row col-8 col-lg-5 m-auto mt-5 p-3 border border-primary">
-            <h2 class="rounded text-center text-white bg-info p-2">Sửa</h2>
+        <div class="row col-8 col-lg-5 m-auto mt-5 p-3 border border-primary border-4 bg-light-subtle rounded-3">
+            <h2 class="rounded text-center text-white p-2 bg-primary bg-gradient">Sửa</h2>
             <form method="get" action="listUsers">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email:</label>
@@ -34,6 +34,9 @@
                 </div>
                 <input value={{index}} class="d-none" name="userNum">
                 <div class="row">
+                    <div class="col-6">
+                        <a class="col-6" href="listUsers">Hủy</a>
+                    </div>
                     <div class="col text-end">
                         <input type="submit" class="btn btn-primary" value="Xác nhận">
                     </div>

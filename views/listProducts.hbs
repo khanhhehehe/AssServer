@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">SHOPHEHEHE</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,33 +31,31 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/addUser">Thêm người dùng </a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Danh sách người dùng</a></li>
+                                    <li><a class="dropdown-item" href="/listUsers">Danh sách người dùng</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Sản phẩm</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Cài đặt</a>
-                            </li>
-
                         </ul>
                     </div>
+                    <ul class="navbar-right bg-danger bg-gradient navbar-nav me-auto mb-2 ps-1 pe-1 mb-lg-0 rounded-4">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="Login.html">Đăng xuất</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
-        <div class="row">
-            <h1>Danh sách sản phẩm</h1>
+        <div class="row bg-primary-subtle p-3 text-center rounded shadow m-3">
+            <h1 class="fw-bolder">Danh sách sản phẩm</h1>
         </div>
         <form action="addNewPr" method="get">
-            <button type="submit">Thêm sản phẩm</button>
+            <button class="bg-success bg-gradient border-0 mt-3 mb-3 p-2 rounded text-light" type="submit">Thêm sản phẩm</button>
         </form>
         <div class="row">
             <div class="col-12">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped border-light-subtle shadow-sm">
                     <thead>
                         <tr>
                             <th scope="col">STT</th>

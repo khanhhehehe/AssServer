@@ -100,7 +100,6 @@ app.post('/register', (req, res) => {
         console.log(myData);
     })
 })
-
 app.get('/listUsers', (req, res) => {
     let emailUser = req.query.email
     let passUser = req.query.password
