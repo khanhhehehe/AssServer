@@ -1,0 +1,40 @@
+<body class="bg-info bg-gradient">
+{{#if checkMail}}
+<div id="w" class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" role="alert">
+    Email đã tồn tại!
+</div>
+{{/if}}
+<div class="container ">
+    <div class="row col-8 col-lg-5 m-auto mt-5 p-3 border border-4 border-primary bg-light bg-gradient rounded">
+        <h2 class="rounded text-center text-white bg-primary bg-gradient p-2">Đăng ký</h2>
+        <form class="" action="/register" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email:</label>
+                <input type="email" name="emailRes" class="form-control" id="exampleInputEmail1" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                <input type="password" name="passRes" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-check-label" for="exampleCheck1">Họ và tên:</label>
+                <input type="text" name="nameRes" class="form-control" id="exampleCheck1" required>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <a class="col-6" href="Login.html">Đăng nhập</a>
+                </div>
+                <div class="col text-end">
+                    <input type="submit" class="btn btn-primary" value="Xác nhận">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    window.setTimeout(function () {
+        let alertShow = document.getElementById('w')
+        alertShow.style.display = 'none'
+    }, 5000)
+</script>

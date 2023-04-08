@@ -1,110 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">SHOPHEHEHE</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Người dùng
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/addUser">Thêm người dùng </a></li>
-                                    <li><a class="dropdown-item" href="/listUsers">Danh sách người dùng</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Sản phẩm</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <ul class="navbar-right bg-danger bg-gradient navbar-nav me-auto mb-2 ps-1 pe-1 mb-lg-0 rounded-4">
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">SHOPHEHEHE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Người dùng
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="listDataUser">Danh sách người dùng</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="Login.html">Đăng xuất</a>
+                            <a class="nav-link" href="#">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-lg-none bg-danger bg-gradient rounded-1 text-center"
+                                href="Login.html">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
-            </nav>
+                <ul
+                    class="navbar-right bg-danger bg-gradient navbar-nav me-auto mb-2 ps-1 pe-1 mb-lg-0 rounded-4 d-none d-lg-block">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="Login.html">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="row bg-primary-subtle p-3 text-center rounded shadow m-3">
+        <h1 class="fw-bolder">Danh sách sản phẩm</h1>
+    </div>
+    <button type="button" class="bg-success bg-gradient border-0 mt-3 mb-3 p-2 rounded text-light"
+        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Thêm sản phẩm
+    </button>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered border-light-subtle shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Hình ảnh</th>
+                        <th scope="col">Màu sắc</th>
+                        <th scope="col">Loại sản phẩm</th>
+                        <th scope="col">Khách hàng</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each listproducts}}
+                    <tr>
+                        <th scope="row">{{@index}}</th>
+                        <td>{{namePr}}</td>
+                        <td>{{price}}</td>
+                        <td class="col text-center">
+                            <div class="col">
+                                <img src="uploads/{{imgPr}}" class="mb-1 rounded-2 border border-2 border-dark-subtle"
+                                    width="70" height="70" alt="">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-secondary text-center"
+                                    style="height: 35px;width: 40px" data-bs-toggle="modal"
+                                    data-bs-target="#change{{_id}}">
+                                    <ion-icon name="camera" style="height: 15px;width: 15px;"></ion-icon>
+                                </button>
+                                <div class="modal fade" id="change{{_id}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel1">Thay ảnh đại diện
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="changeImg/product"
+                                                    enctype="multipart/form-data">
+
+                                                    <div class="mb-3">
+                                                        <label for="formFile" class="form-label">Sản phẩm:
+                                                            {{namePr}}</label>
+                                                        <input class="form-control" name="imgRes" type="file"
+                                                            id="formFilene" accept="image/*" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Hủy</button>
+                                                        <button id="changeimage" name="prNum" value="{{_id}}"
+                                                            class="btn btn-primary" type="submit">Đồng
+                                                            ý</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{color}}</td>
+                        <td>{{typePr}}</td>
+                        <td>{{nameUser}}</td>
+                        <td class="col-1">
+                            {{!-- button update --}}
+                            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop{{_id}}">
+                                <ion-icon name="create-outline"></ion-icon>
+                            </button>
+                            <div class="modal fade" id="staticBackdrop{{_id}}" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content border border-primary border-4 bg-light-subtle rounded-3">
+                                        <div class="modal-header bg-primary text-white rounded-top-1">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sửa sản phẩm</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="updatePr" method="post">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputName" class="form-label">Tên sản
+                                                        phẩm:</label>
+                                                    <input type="text" name="namePr" class="form-control"
+                                                        id="exampleInputName" value="{{namePr}}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPrice" class="form-label">Giá</label>
+                                                    <input type="number" name="pricePr" class="form-control"
+                                                        id="exampleInputPrice" value="{{price}}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputColor" class="form-label">Màu sắc</label>
+                                                    <input type="text" name="clPr" class="form-control"
+                                                        id="exampleInputColor" value="{{color}}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputType" class="form-label">Loại sản
+                                                        phẩm</label>
+                                                    <input type="text" name="tPr" class="form-control"
+                                                        id="exampleInputType" value="{{typePr}}">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group-text" for="usersUp">Khách hàng:</label>
+                                                    <select name="usersUp" class="form-select" id="usersUp">
+                                                        {{#each ../listusers}}
+                                                        <option value="{{_id}}">{{name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Hủy</button>
+                                                    <button name="idUpPr" value="{{_id}}" type="submit"
+                                                        class="btn btn-primary">Xác nhận</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{!-- button delete --}}
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{_id}}">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                            <div class="modal fade" id="exampleModal{{_id}}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa sản phẩm</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Bạn có chắc chắn muốn xóa không?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Hủy</button>
+                                            <form method="get" action="deletePr">
+                                                <button name="prNum" value={{_id}} class="btn btn-primary"
+                                                    type="submit">Đồng
+                                                    ý</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
-        <div class="row bg-primary-subtle p-3 text-center rounded shadow m-3">
-            <h1 class="fw-bolder">Danh sách sản phẩm</h1>
-        </div>
-        <form action="addNewPr" method="get">
-            <button class="bg-success bg-gradient border-0 mt-3 mb-3 p-2 rounded text-light" type="submit">Thêm sản phẩm</button>
-        </form>
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-bordered table-striped border-light-subtle shadow-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Đơn giá</th>
-                            <th scope="col">Hình ảnh</th>
-                            <th scope="col">Màu sắc</th>
-                            <th scope="col">Loại sản phẩm</th>
-                            <th scope="col">Khách hàng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each prData}}
-                        <tr>
-                            <th scope="row">{{@index}}</th>
-                            <td>{{namePr}}</td>
-                            <td>{{price}}</td>
-                            <td>{{imgPr}}</td>
-                            <td>{{color}}</td>
-                            <td>{{type}}</td>
-                            <td>{{nameUser}}</td>
-                            <td class="col-1">
-                                <form method="get" action="updatePr">
-                                    <button type="submit">Sửa</button>
-                                    <input value={{id}} class="d-none" name="prNum">
-                                </form>
-                                <form method="get" action="deletePr">
-                                    <button type="submit">Xóa</button>
-                                    <input value={{id}} class="d-none" name="prNum">
-                                </form>
-                            </td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
+    </div>
+    {{!-- <div class="rol">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div> --}}
+</div>
+{{!-- modal them san pham --}}
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content border border-primary border-4 bg-light-subtle rounded-3">
+            <div class="modal-header bg-primary text-white rounded-top-1">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm sản phẩm</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="addNewPr" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" name="namePr" class="form-control" id="exampleInputName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPrice" class="form-label">Giá</label>
+                        <input type="number" name="pricePr" class="form-control" id="exampleInputPrice" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Ảnh sản phẩm</label>
+                        <input class="form-control" name="imgRes" type="file" id="formFile" accept="image/*" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputColor" class="form-label">Màu sắc</label>
+                        <input type="text" name="clPr" class="form-control" id="exampleInputColor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputType" class="form-label">Loại sản phẩm</label>
+                        <input type="text" name="tPr" class="form-control" id="exampleInputType">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="users">Khách hàng:</label>
+                        <select name="idUser" class="form-select" id="users">
+                            {{#each listusers}}
+                            <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    </div>
+                </form>
             </div>
         </div>
-        {{!-- <div class="rol">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div> --}}
     </div>
-</body>
-
-</html>
+</div>
