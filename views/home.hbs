@@ -106,8 +106,7 @@
                                 <button type="button" class="btn btn-outline-secondary text-center"
                                     style="height: 35px;width: 40px" data-bs-toggle="modal"
                                     data-bs-target="#change{{_id}}">
-                                    <ion-icon name="camera"
-                                        style="height: 15px;width: 15px;"></ion-icon>
+                                    <ion-icon name="camera" style="height: 15px;width: 15px;"></ion-icon>
                                 </button>
                                 <div class="modal fade" id="change{{_id}}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel1" aria-hidden="true">
@@ -143,7 +142,7 @@
                         </td>
                         <td class="col-1">
                             {{!-- button update --}}
-                            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-outline-warning mb-1" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop{{_id}}">
                                 <ion-icon name="create-outline"></ion-icon>
                             </button>
@@ -165,12 +164,6 @@
                                                         id="exampleInputEmail2" required value="{{email}}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleInputPassword2" class="form-label">Mật
-                                                        khẩu</label>
-                                                    <input type="password" name="passRes" class="form-control"
-                                                        id="exampleInputPassword2" required value="{{pass}}">
-                                                </div>
-                                                <div class="mb-3">
                                                     <label class="form-check-label" for="exampleCheck2">Họ và
                                                         tên:</label>
                                                     <input type="text" name="nameRes" class="form-control"
@@ -190,7 +183,7 @@
                             </div>
 
                             {{!-- button delete --}}
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-outline-danger mb-1" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal{{_id}}">
                                 <ion-icon name="trash-outline"></ion-icon>
                             </button>
@@ -214,6 +207,42 @@
                                                 <button name="userNum" value={{_id}} class="btn btn-primary"
                                                     type="submit">Đồng
                                                     ý</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{!-- new password --}}
+                            <p style=""></p>
+                            <button type="button" class="btn btn-outline-primary" style="font-size: 10px"
+                                data-bs-toggle="modal" data-bs-target="#passchange{{_id}}">
+                                Tạo mật khẩu mới
+                            </button>
+                            <div class="modal fade" id="passchange{{_id}}" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content border border-primary border-4 bg-light-subtle rounded-3">
+                                        <div class="modal-header bg-primary text-white rounded-top-1">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Mật khẩu mới</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="updatePassword" method="post">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword2" class="form-label">Mật
+                                                        khẩu</label>
+                                                    <input type="password" name="passRes" class="form-control"
+                                                        id="exampleInputPassword2" required >
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Hủy</button>
+                                                    <button name="idUpUser" value="{{_id}}" type="submit"
+                                                        class="btn btn-primary">Xác
+                                                        nhận</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
