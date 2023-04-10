@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div id="box-full" class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
@@ -27,8 +27,10 @@
                             <a class="nav-link" href="listPrs">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-lg-none bg-danger bg-gradient rounded-1 text-center"
-                                href="Login.html">Đăng xuất</a>
+                            <form action="logout" method="get">
+                                <button class="nav-link d-lg-none bg-danger bg-gradient rounded-1 text-center"
+                                    href="Login.html">Đăng xuất</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -68,8 +70,7 @@
             <form class="col" method="get" action="listDataUser">
                 <button class="btn btn-secondary" type="submit">
                     <div class="d-flex flex-row">
-                        <ion-icon name="refresh-circle-outline" class="me-2"></ion-icon>
-                        Tất cả
+                        <ion-icon name="refresh-circle-outline"></ion-icon>
                     </div>
                 </button>
             </form>
@@ -234,7 +235,7 @@
                                                     <label for="exampleInputPassword2" class="form-label">Mật
                                                         khẩu</label>
                                                     <input type="password" name="passRes" class="form-control"
-                                                        id="exampleInputPassword2" required >
+                                                        id="exampleInputPassword2" required>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

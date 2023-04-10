@@ -3,14 +3,17 @@
     {{textalert}}
 </div>
 {{else}}
-<div id="w" class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" style="display: {{styless}};" role="alert">
+<div id="w" class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" style="display: {{styless}};"
+    role="alert">
     {{textalert}}
 </div>
 {{/if}}
 <ul class="navbar-right bg-danger bg-gradient navbar-nav me-auto ps-1 pe-1 mb-lg-0 rounded-4 d-none d-lg-block mt-1"
     style="position: absolute;right: 5px">
     <li class="nav-item">
-        <a class="nav-link text-light" href="Login.html">Đăng xuất</a>
+        <form action="logout" method="get">
+            <button type="submit" class="nav-link text-light" style="background: none;border: none;">Đăng xuất</button>
+        </form>
     </li>
 </ul>
 <section class="vh-100" style="background-color: #dce7ff;height: 100%">
