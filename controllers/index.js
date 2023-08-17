@@ -36,7 +36,7 @@ exports.Login = async (req, res, next) => {
     try {
         let user = await usersModel.findByCredentials(email, password)
         if (user == null) {
-            res.render('Login.html', { wrong: true })
+            res.render('login.hbs', { wrong: true })
         } else {
             let checkPass = await bcrypt.compare(password, user.pass)
             if (checkPass) {

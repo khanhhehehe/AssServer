@@ -36,11 +36,13 @@ UsersSchema.methods.generateAuthToken = async function () {
 UsersSchema.statics.findByCredentials = async (email, pass) => {
     const user = await UsersModel.findOne({ email })
     if (!user) {
-        throw new Error({ error: 'Không tồn tại user' })
+        return null
+        // throw new Error({ error: 'Không tồn tại user' })
     }
     const isPasswordMatch = await bcrypt.compare(pass, user.pass)
     if (!isPasswordMatch) {
-        throw new Error({ error: 'Sai password' })
+        return null
+        // throw new Error({ error: 'Sai password' })
     }
     return user
 }
